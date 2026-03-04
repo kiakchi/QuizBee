@@ -18,7 +18,6 @@ def easyround():
     print("EASY Categories")
     print("**************************")
     for eround in easy_questions:
-        print("++++++++++++++++++++++++++")
         print(eround)
         for easyopt in easy_option[easyopt_num-1]:
             print(easyopt)

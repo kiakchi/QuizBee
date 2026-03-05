@@ -14,6 +14,7 @@ def easyround():
     answer = []
     correct_answer = 0
     easyopt_num = 1
+
     print("**************************")
     print("EASY Categories")
     print("**************************")
@@ -21,16 +22,31 @@ def easyround():
         print(eround)
         for easyopt in easy_option[easyopt_num-1]:
             print(easyopt)
-        easy = input("Please enter your answer (A, B, C, or D): ")
-        easy = easy.upper()
+        easy_ans = input("Please enter your answer (A, B, C, or D): ")
+        easy_ans = easy_ans.upper()
+        answer.append(easy_ans)
+        correct_answer += easycheck_answer(easy_questions.get(eround), easy_ans) # (easy_questions.get(eround) - means to get the value from dictionary
         easyopt_num += 1
 
+    print("You got", correct_answer, "correct answers for easy round")
 
-def check_answer():
-    pass
+def easycheck_answer(ecorrect_answer, easy_ans):
+    if ecorrect_answer == easy_ans:
+        print("Correct!")
+        print("**************************")
+        return 1
 
-def display_score():
-    pass
+    else:
+        for a in easy_questions:
+            print("Incorrect!")
+            print("**************************")
+            return 0
+
+def edisplay_score(ecorrect_answer, easy_ans):
+    print("*******************************")
+    print("Results:")
+    for ecorrect_answer in easy_questions:
+        print(easy_questions.get(ecorrect_answer), end=" ")
 
 def play_again():
     pass

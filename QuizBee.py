@@ -28,7 +28,7 @@ def easyround():
         correct_answer += easycheck_answer(easy_questions.get(eround), easy_ans) # (easy_questions.get(eround) - means to get the value from dictionary
         easyopt_num += 1
 
-    print("You got", correct_answer, "correct answers for easy round")
+    edisplay_score(correct_answer, easy_ans)
 
 def easycheck_answer(ecorrect_answer, easy_ans):
     if ecorrect_answer == easy_ans:
@@ -42,12 +42,54 @@ def easycheck_answer(ecorrect_answer, easy_ans):
             print("**************************")
             return 0
 
-def edisplay_score(ecorrect_answer, easy_ans):
+def edisplay_score(correct_answer, easy_ans):
     print("*******************************")
     print("Results:")
-    for ecorrect_answer in easy_questions:
-        print(easy_questions.get(ecorrect_answer), end=" ")
+    print("You got", correct_answer, "correct answers for easy round")
+    print("++++++++++++++++++++++++++")
+    print("Let's proceed to Round 2")
+    print("++++++++++++++++++++++++++")
 
+def medround():
+    answer = []
+    medcorrect_answer = 0
+    medopt_num = 1
+
+    print("**************************")
+    print("MEDIUM Categories")
+    print("**************************")
+    for mround in med_questions:
+        print(mround)
+        for medopt in med_option[medopt_num - 1]:
+            print(medopt)
+        med_ans = input("Please enter your answer (A, B, C, or D): ")
+        med_ans = med_ans.upper()
+        answer.append(med_ans)
+        medcorrect_answer += medcheck_answer(med_questions.get(mround),
+                                           med_ans)  # (med_questions.get(mround) - means to get the value from dictionary
+        medopt_num += 1
+
+    mdisplay_score(medcorrect_answer, med_ans)
+
+def medcheck_answer(mcorrect_answer, med_ans):
+    if mcorrect_answer == med_ans:
+        print("Correct!")
+        print("**************************")
+        return 1
+
+    else:
+        for a in easy_questions:
+            print("Incorrect!")
+            print("**************************")
+            return 0
+
+def mdisplay_score(medcorrect_answer, med_ans):
+    print("*******************************")
+    print("Results:")
+    print("You got", medcorrect_answer, "correct answers for medium round")
+    print("++++++++++++++++++++++++++")
+    print("Let's proceed to Round 3")
+    print("++++++++++++++++++++++++++")
 def play_again():
     pass
 
@@ -93,4 +135,5 @@ hard_option = [["A: ", "B: ", "C: The atmosphere", "D: "],
                ["A: ", "B: ", "C: ", "D: 0°C"]]
 
 easyround()
+medround()
 

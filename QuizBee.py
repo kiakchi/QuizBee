@@ -1,15 +1,5 @@
 # This is a quiz bee game for kids
 
-name = input("Enter player name: ")
-print("*************************")
-print("Welcome" + " " + name)
-print("*************************")
-print("This is a Quiz Game for kids")
-print("There will be 3 Categories")
-print("The categories are: Easy, Medium and Hard")
-print("Each categories will have 5 questions")
-print("Good Luck!!!")
-
 def easyround():
     answer = []
     correct_answer = 0
@@ -29,6 +19,7 @@ def easyround():
         easyopt_num += 1
 
     edisplay_score(correct_answer, easy_ans)
+    return correct_answer
 
 def easycheck_answer(ecorrect_answer, easy_ans):
     if ecorrect_answer == easy_ans:
@@ -46,6 +37,9 @@ def edisplay_score(correct_answer, easy_ans):
     print("*******************************")
     print("Results:")
     print("You got", correct_answer, "correct answers for easy round")
+    print("Round 1 finished")
+    print("*******************************")
+    input("Press enter to continue...")
     print("++++++++++++++++++++++++++")
     print("Let's proceed to Round 2")
     print("++++++++++++++++++++++++++")
@@ -54,7 +48,6 @@ def medround():
     answer = []
     medcorrect_answer = 0
     medopt_num = 1
-
     print("**************************")
     print("MEDIUM Categories")
     print("**************************")
@@ -70,7 +63,7 @@ def medround():
         medopt_num += 1
 
     mdisplay_score(medcorrect_answer, med_ans)
-
+    return medcorrect_answer
 def medcheck_answer(mcorrect_answer, med_ans):
     if mcorrect_answer == med_ans:
         print("Correct!")
@@ -87,9 +80,11 @@ def mdisplay_score(medcorrect_answer, med_ans):
     print("*******************************")
     print("Results:")
     print("You got", medcorrect_answer, "correct answers for medium round")
+    print("Round 2 finished")
+    print("*******************************")
+    input("Press enter to continue...")
     print("++++++++++++++++++++++++++")
-    print("Let's proceed to Round 3")
-    print("++++++++++++++++++++++++++")
+
 def play_again():
     pass
 
@@ -134,6 +129,24 @@ hard_option = [["A: ", "B: ", "C: The atmosphere", "D: "],
                ["A: ", "B: The nucleus", "C: ", "D: "],
                ["A: ", "B: ", "C: ", "D: 0°C"]]
 
-easyround()
-medround()
+#main program
+name = input("Enter player name: ")
+print("*************************")
+print("Welcome" + " " + name)
+print("*************************")
+print("This is a Quiz Game for kids")
+print("There will be 3 Categories")
+print("The categories are: Easy, Medium and Hard")
+print("Each categories will have 5 questions")
+print("Good Luck!!!")
+input("Press enter to continue...")
 
+round_1 = easyround()
+round_2 = medround()
+round_3 = hardround()
+
+
+
+print("Lets recap the score")
+print("Round 1 score: ", round_1)
+print("Round 2 score: ", round_2)
